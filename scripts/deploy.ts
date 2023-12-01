@@ -1,14 +1,18 @@
 import { ethers, run } from "hardhat";
 
+function pauseFor(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function main() {
   // don't deploy ERC20 token on mainnet
-  const AlienMiladyFumo = await ethers.getContractFactory("AlienMiladyFumo");
-  const alienMiladyFumoContract = await AlienMiladyFumo.deploy();
-  await alienMiladyFumoContract.deployed();
-  console.log("Alien Milady Fumo ERC20 Contract deployed to:", alienMiladyFumoContract.address);
+  // const AlienMiladyFumo = await ethers.getContractFactory("AlienMiladyFumo");
+  // const alienMiladyFumoContract = await AlienMiladyFumo.deploy();
+  // await alienMiladyFumoContract.deployed();
+  // console.log("Alien Milady Fumo ERC20 Contract deployed to:", alienMiladyFumoContract.address);
 
-  const fumoErc20Address = alienMiladyFumoContract.address; // use this on Sepolia
-  // const fumoErc20Address = "0x2890df158d76e584877a1d17a85fea3aeeb85aa6" // use this on mainnet
+  // const fumoErc20Address = alienMiladyFumoContract.address; // use this on Sepolia
+  const fumoErc20Address = "0x2890df158d76e584877a1d17a85fea3aeeb85aa6"; // use this on mainnet
 
   const placeholderAddress = "0x60A59d7003345843BE285c15c7C78B62b61e0d7c";
 
@@ -23,6 +27,8 @@ async function main() {
   console.log("Redeemer Contract deployed to:", redeemerContract.address);
 
   await nftContract.setMinter(redeemerContract.address);
+
+  await pauseFor(5 * 60 * 1000);
 
   await run("verify:verify", {
     address: nftContract.address,
