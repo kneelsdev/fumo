@@ -2,9 +2,9 @@ pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract TestErc20 is ERC20 {
-  constructor() ERC20("Token", "TKN") {
-    // _mint(msg.sender, 1000000 * uint256(decimals()));
+contract AlienMiladyFumo is ERC20 {
+  constructor() ERC20("Alien Milady Fumo", "FUMO") {
+    _mint(msg.sender, 500 * 10 ** 18);
   }
 
   function mint(uint256 quantity) public {

@@ -28,7 +28,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.4",
+    version: "0.8.19",
     settings: {
       optimizer: {
         enabled: true,
@@ -36,24 +36,17 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  // solidity: {
-  //   compilers: [
-  //     {
-  //       version: "0.7.6",
-  //     },
-  //   ],
-  // },
-  defaultNetwork: "hardhat",
+  defaultNetwork: "localhost",
   networks: {
     sepolia: {
       accounts: [privateKey],
       url: "https://sepolia.infura.io/v3/569cee6284754b9e86ff2e5e55a0dc22",
       chainId: 11155111,
     },
-    goerli: {
+    mainnet: {
       accounts: [privateKey],
-      url: "https://goerli.infura.io/v3/569cee6284754b9e86ff2e5e55a0dc22",
-      chainId: 5,
+      url: "https://mainnet.infura.io/v3/569cee6284754b9e86ff2e5e55a0dc22",
+      chainId: 1,
     },
     localhost: {
       url: "http://127.0.0.1:8545",
@@ -63,12 +56,6 @@ const config: HardhatUserConfig = {
       // gasPrice: "2000000000000000000",
       minGasPrice: 0,
     },
-    mainnet: {
-      accounts: [privateKey],
-      url: "https://mainnet.infura.io/v3/569cee6284754b9e86ff2e5e55a0dc22",
-      chainId: 1,
-    },
-    hardhat: {},
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY || "",

@@ -4,34 +4,27 @@
   "description": "Get client ready:",
   "main": "index.js",
   "scripts": {
-    "preTest": "node test/preTest.js",
-    "postTest": "node test/postTest.js",
-    "test": "npm run preTest && npx hardhat test test/archetype.test.ts && npm run postTest",
-    "test:specific": "npm run preTest && hardhat test test/archetype.test --grep && npm run postTest",
     "start": "concurrently \"cd api && npm start\" \"cd app && npm run dev\"",
-    "deploy": "npx hardhat run scripts/deployArchetype.ts --network localhost",
+    "deploy": "npx hardhat run scripts/deploy.ts --network sepolia",
     "network": "npx hardhat node",
-    "verify": "npx hardhat verify 0xc078Aed674c230cDD7ADD602E077797d08d8f0c2 --network goerli"
+    "verify": "npx hardhat verify 0xBa77871067dA53F563Aa2323533a0f12b2d37Cd4 --network sepolia '0x28480C46b1EF58Fc071f2D149f6ed324eD097E13'  '0x61b4FBC844343bee09C0F5CADb38C86AFc4fB03b'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scatter-art/contracts.git"
+    "url": "git+https://github.com/guminc/contracts.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/scatter-art/contracts/issues"
+    "url": "https://github.com/guminc/contracts/issues"
   },
-  "homepage": "https://github.com/scatter-art/contracts#readme",
+  "homepage": "https://github.com/guminc/contracts#readme",
   "dependencies": {
-    "concurrently": "6.4.0",
-    "ethereumjs-util": "7.1.4",
-    "ipfsh": "0.0.6",
-    "solady": "^0.0.19"
+    "concurrently": "6.4.0"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "2.0.5",
-    "@nomiclabs/hardhat-etherscan": "3.0.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@nomiclabs/hardhat-truffle5": "2.0.3",
     "@nomiclabs/hardhat-waffle": "2.0.1",
     "@nomiclabs/hardhat-web3": "2.0.0",
@@ -75,8 +68,7 @@
     "solidity-coverage": "0.7.17",
     "ts-node": "^10.4.0",
     "typechain": "7.0.1",
-    "typescript": "4.5.4",
-    "web3": "1.7.1"
+    "typescript": "4.5.4"
   },
   "files": []
 }
