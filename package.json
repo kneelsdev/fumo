@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"cd api && npm start\" \"cd app && npm run dev\"",
-    "deploy": "npx hardhat run scripts/deploy.ts --network sepolia",
+    "deploy": "npx hardhat run scripts/deploy.ts --network mainnet",
     "network": "npx hardhat node",
-    "verify": "npx hardhat verify 0xBa77871067dA53F563Aa2323533a0f12b2d37Cd4 --network sepolia '0x28480C46b1EF58Fc071f2D149f6ed324eD097E13'  '0x61b4FBC844343bee09C0F5CADb38C86AFc4fB03b'"
+    "verify": "npx hardhat verify 0xBa77871067dA53F563Aa2323533a0f12b2d37Cd4 --network mainnet '0x28480C46b1EF58Fc071f2D149f6ed324eD097E13'  '0x61b4FBC844343bee09C0F5CADb38C86AFc4fB03b'"
   },
   "repository": {
     "type": "git",
